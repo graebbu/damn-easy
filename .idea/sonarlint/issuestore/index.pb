@@ -1,0 +1,19 @@
+
+>
+app/.gitignore,5/1/51e1c5d383dfaa35e0e7e5873a0a99355a86880f
+f
+6app/src/main/java/com/graebbu/damneasy/MainActivity.kt,c/3/c3f268f7ae48c530905bc96c1346cda4bec36a87
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+b
+2app/src/main/java/com/graebbu/damneasy/DamnEasy.kt,6/4/64f419fd1897c40618edd04b6927fd845911c20d
+k
+;app/src/main/java/com/graebbu/damneasy/DamnEasyCoroutine.kt,b/8/b870721b0ea1a73d737c73497ef9b9acafa70f6f
+j
+:app/src/main/java/com/graebbu/damneasy/DamnEasySequence.kt,d/5/d53cf4c3c7ce392a6f5cee418c1ffb97096230a4
+k
+;app/src/test/java/com/graebbu/damneasy/DamnEasyCoroutine.kt,3/e/3eb22b80d7a268f4f5fad7a9897e9f9848953404
+j
+:app/src/test/java/com/graebbu/damneasy/DamnEasySequence.kt,0/0/00eb4cc3eebd35580ab014110a98750e883fb3e6
+i
+9app/src/test/java/com/graebbu/damneasy/ExampleUnitTest.kt,8/3/8398052fedf94eeabc824eaebe9058c22f34f48c
