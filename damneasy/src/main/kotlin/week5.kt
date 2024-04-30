@@ -2,15 +2,16 @@ package org.example
 
 import kotlinx.coroutines.*
 
-suspend fun p115(): Unit = runBlocking {
+suspend fun p115(): Unit = supervisorScope {
     // try-catch 구문으로 래핑하지 마세요. 무시됩니다.
-    launch {
-        try {
-            delay(1000)
-            throw Error("Some error")
-        } catch (e: Throwable) { // 여기선 아무 도움이 되지 않습니다.
-            println("Will not be printed")
-        }
+    val test = async {
+        delay(1000)
+        throw Error("Some error")
+    }
+    try {
+        test.await()
+    } catch (e: Throwable) { // 여기선 아무 도움이 되지 않습니다.
+        println("Will not be printed")
     }
     launch {
         delay(2000)
