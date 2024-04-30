@@ -1,7 +1,9 @@
 package org.example
 
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.MutableStateFlow
 import java.time.LocalTime
+import kotlin.system.measureTimeMillis
 
 suspend fun p129() = runBlocking {
     println("${LocalTime.now()} : start")
@@ -113,3 +115,50 @@ fun testUseCase(scope: CoroutineScope) {
     println("scope fun: ${scope}")
 }
 
+suspend fun p142() = CoroutineScope(Dispatchers.Default).launch {
+    println("start")
+    val progressBar = MutableStateFlow(false)
+    progressBar.value = true
+    p142ShowUserData()
+    progressBar.value = false
+    println("end")
+}
+
+suspend fun p142ShowUserData() = coroutineScope {
+    val time = measureTimeMillis {
+        val friends = async {
+            delay(1000)
+            "friends"
+        }
+        val profile = async {
+            delay(1000)
+            "profile"
+        }
+        val user = Pair(friends.await(), profile.await())
+
+        launch {
+            delay(1000)
+        }
+    }
+    println("$time")
+}
+
+suspend fun p142Test() = coroutineScope{
+    val time = measureTimeMillis {
+        val res = async { delay(1000) }
+        launch {
+            delay(1000)
+        }
+
+        launch {
+            delay(1000)
+        }
+
+        val scope = CoroutineScope(SupervisorJob())
+        scope.launch {
+            delay(2000)
+        }
+        res.await()
+    }
+    println("fun : $time ms")
+}
